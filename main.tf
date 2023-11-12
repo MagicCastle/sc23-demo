@@ -62,19 +62,6 @@ module "dns" {
   sudoer_username  = module.aws.accounts.sudoer.username
 }
 
-## Uncomment to register your domain name with Google Cloud
-# module "dns" {
-#   source           = "git::https://github.com/ComputeCanada/magic_castle.git//dns/gcloud"
-#   project          = "your-project-id"
-#   zone_name        = "you-zone-name"
-#   name             = module.aws.cluster_name
-#   domain           = module.aws.domain
-#   bastions         = module.aws.bastions
-#   public_instances = module.aws.public_instances
-#   ssh_private_key  = module.aws.ssh_private_key
-#   sudoer_username  = module.aws.accounts.sudoer.username
-# }
-
 output "hostnames" {
-	value = module.dns.hostnames
+  value = module.dns.hostnames
 }
