@@ -8,15 +8,15 @@ variable "pool" {
 }
 
 module "aws" {
-  cluster_name = ""
-  guest_passwd = ""
+  cluster_name = "julian"
+  guest_passwd = "battery-host-typo"
   nb_users     = 10
   domain       = "magiccastle.live"
 
   instances = {
     mgmt  = { type = "t3.large",  count = 1, tags = ["mgmt", "puppet", "nfs"] },
     login = { type = "t3.medium", count = 1, tags = ["login", "public", "proxy"] },
-    node  = { type = "t3.medium", count = 1, tags = ["node"] }
+    node  = { type = "t3.medium", count = 4, tags = ["node"] }
   }
 
   volumes = {
